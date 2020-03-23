@@ -12,33 +12,13 @@ class App extends React.Component {
 
   state = { videos: [] }
 
-  componentWillMount() {
-    console.log('willmountダオ');
-  }
-
   componentDidMount() {
-    YSearch({ key: YOUTUBE_API_KEY, term: 'こーづまん' }, (data) => {
-      this.setState({ videos: data });
+    YSearch({ key: YOUTUBE_API_KEY, term: '猫　きゅうり' }, (data) => {
+      this.setState({ videos: data })
     });
-    console.log("componentDidMountでーす。")
-  }
-
-  shouldComponentUpdate(nextProps, nextState) {
-    console.log('更新前のstate:' + this.state.videos);
-    console.log('更新後のstate:' + nextState.videos);
-    return true;
-  }
-
-  componentWillUpdate() {
-    console.log("componentWillUpdateでーす。")
-  }
-
-  componentDidUpdate() {
-    console.log("componentDidUpdateでーす。")
   }
 
   render() {
-    console.log(this.state.videos);
     return (
       <div className="App">
         <Header />
